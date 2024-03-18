@@ -107,8 +107,17 @@ body {
 var bancoPreguntas = [];
 var preguntasRestantes = [];
 
+// Función para limpiar los datos del Excel anterior
+function limpiarDatosExcelAnterior() {
+    bancoPreguntas = [];
+    preguntasRestantes = [];
+    document.getElementById("nombreArchivo").innerText = ""; // Limpiar el nombre del archivo cargado
+    document.getElementById("preguntasContainer").innerHTML = ""; // Limpiar el contenedor de preguntas
+}
+
 // Función para leer preguntas desde un archivo Excel
 function leerPreguntasDesdeExcel(event) {
+    limpiarDatosExcelAnterior(); // Limpiar los datos del Excel anterior
     var archivo = event.target.files[0];
     var lector = new FileReader();
 
